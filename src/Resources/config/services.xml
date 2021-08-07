@@ -1,0 +1,35 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <!-- Entity Extension-->
+        <service id="Sondoong\SondoongProductReview\Core\Content\Product\ProductReviewExtension">
+            <tag name="shopware.entity.extension"/>
+        </service>
+
+        <!-- Entity Definitions-->
+        <service id="Sondoong\SondoongProductReview\Core\Sondoong\SondoongDefinition">
+            <tag name="shopware.entity.definition" entity="sondoong_product_review" />
+        </service>
+
+        <service id="Sondoong\SondoongProductReview\Resources\snippet\en_GB\SnippetFile_en_GB">
+            <tag name="shopware.snippet.file" priority="100"/>
+        </service>
+
+        <service id="Sondoong\SondoongProductReview\Resources\snippet\de_DE\SnippetFile_de_DE">
+            <tag name="shopware.snippet.file" priority="100"/>
+        </service>
+
+        <!-- Subscriber -->
+        <service id="Sondoong\SondoongProductReview\Subscriber\ProductReviewSubscriber">
+            <argument type="service" id="sondoong_product_review.repository"/>
+            <argument type="service" id="order.repository"/>
+            <argument type="service" id="Shopware\Core\System\SystemConfig\SystemConfigService" />
+
+            <tag name="kernel.event_subscriber"/>
+        </service>
+    </services>
+</container>

@@ -1,0 +1,19 @@
+.product-detail {
+  &-review-item-purchased {
+    display: flex;
+    justify-items: center;
+    .icon-purchased {
+      width: 14px;
+      height: 14px;
+      margin-left: 5px;
+    }
+
+    .icon-purchased svg {
+      top: 2px !important;
+    }
+
+    &__label {
+      color: $sw-color-success;
+    }
+  }
+}

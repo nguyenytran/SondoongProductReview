@@ -1,0 +1,31 @@
+{% sw_extends '@Storefront/storefront/page/product-detail/review/review-item.html.twig' %}
+
+{% set isPurchased = review.extensions.sondoong.isPurchased %}
+
+{% block page_product_detail_review_item_info %}
+    <div class="row product-detail-review-item-info">
+        {{ block('page_product_detail_review_item_info_alert') }}
+
+        {{ block('page_product_detail_review_item_info_date') }}
+
+        {{ block('page_product_detail_review_item_info_points') }}
+
+        {{ block('page_product_detail_review_item_title') }}
+
+        {{ block('page_product_detail_review_item_info_verify') }}
+
+        {% if config('SondoongProductReview.config.purchasedEnabled') and isPurchased %}
+            {% block page_product_detail_review_item_info_purchased %}
+                <div class="col-12 product-detail-review-item-purchased">
+                    <p class="product-detail-review-item-purchased__label">
+                        {{ 'sondoongProductReview.detail.reviewPurchasedLabel'|trans }}
+                    </p>
+
+                    <div class="product-detail-review-item-purchased__icon">
+                        {% sw_icon 'checkmark-circle' style { 'size': 'sm', 'color': 'success', 'class': 'purchased' } %}
+                    </div>
+                </div>
+            {% endblock %}
+        {% endif %}
+    </div>
+{% endblock %}

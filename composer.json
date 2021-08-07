@@ -1,0 +1,29 @@
+{
+  "name": "sondoong/plugin-sondoong",
+  "description": "Sondoong plugin",
+  "type": "shopware-platform-plugin",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Y Tran",
+      "email": "nguyenytran06@gmail.com"
+    }
+  ],
+  "require": {
+    "shopware/core": "^6.4",
+    "shopware/administration": "^6.4",
+    "shopware/storefront": "^6.4"
+  },
+  "autoload": {
+    "psr-4": {
+      "Sondoong\\SondoongProductReview\\": "src/"
+    }
+  },
+  "extra": {
+    "shopware-plugin-class": "Sondoong\\SondoongProductReview\\SondoongProductReview",
+    "label": {
+      "de-DE": "Ein einfaches Produktbewertungs-Plugin für Shopware 6",
+      "en-GB": "A Simple Product Review plugin for Shopware 6"
+    }
+  }
+}

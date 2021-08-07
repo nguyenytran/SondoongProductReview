@@ -1,0 +1,16 @@
+{% block sw_settings_cart_content %}
+    <template slot="content">
+        <sw-card-view>
+            <sw-system-config
+                    ref="systemConfig"
+                    sales-channel-switchable
+                    domain="core.cart"
+            />
+
+            <sw-system-config
+                    ref="systemConfig"
+                    domain="SondoongProductReview.config"
+            />
+        </sw-card-view>
+    </template>
+{% endblock %}
