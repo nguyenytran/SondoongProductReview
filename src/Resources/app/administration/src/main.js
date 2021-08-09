@@ -1,1 +1,1 @@
-import './extension/sw-settings-cart/page/sw-settings-cart';
+import './extension/sw-settings-cart';

@@ -37,7 +37,7 @@ class ProductReviewSubscriber implements EventSubscriberInterface
     {
         return [
             ProductEvents::PRODUCT_REVIEW_WRITTEN_EVENT => [
-                ['handleProductReviewWritten', 200]
+                ['handleProductReviewWritten', 201]
             ],
         ];
     }
@@ -92,16 +92,12 @@ class ProductReviewSubscriber implements EventSubscriberInterface
                     continue;
                 }
 
-                $this->sondoongRepository->upsert([
+                $this->sondoongRepository->create([
                     ['productReviewId' => $payload['id'], 'isPurchased' => true]
                 ], $context);
 
-                return;
+                break 2;
             }
         }
-
-        $this->sondoongRepository->upsert([
-            ['productReviewId' => $payload['id'], 'isPurchased' => false]
-        ], $context);
     }
 }

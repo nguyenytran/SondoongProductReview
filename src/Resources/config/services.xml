@@ -15,6 +15,7 @@
             <tag name="shopware.entity.definition" entity="sondoong_product_review" />
         </service>
 
+        <!-- Snippet-->
         <service id="Sondoong\SondoongProductReview\Resources\snippet\en_GB\SnippetFile_en_GB">
             <tag name="shopware.snippet.file" priority="100"/>
         </service>
